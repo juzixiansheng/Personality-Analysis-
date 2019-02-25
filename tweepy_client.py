@@ -1,3 +1,4 @@
+import os
 from tweepy import API 
 from tweepy import Cursor
 from tweepy.streaming import StreamListener
@@ -7,7 +8,7 @@ from tweepy import Stream
 from watson_developer_cloud import PersonalityInsightsV3
 from watson_developer_cloud import WatsonApiException
  
-import twitter_credentials
+# import twitter_credentials
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -17,6 +18,10 @@ import json
 import csv
 import pprint 
 
+twitter_credentials = tweepy.AppAuthHandler(
+    os.environ['TWITTER_CONSUMER_KEY'], 
+    os.environ['TWITTER_CONSUMER_SECRET'], 
+    )
 
 # # # # TWITTER CLIENT # # # #
 class TwitterClient():
